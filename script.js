@@ -86,6 +86,8 @@ function translateDateToKurdish(dateStr) {
 
 // ٢. چالاککردنی ژمێرەری کاتەکە
 function startCountdown() {
+    if (typeof WEDDING_CONFIG === "undefined" || !WEDDING_CONFIG.weddingDate) return;
+
     const targetDate = new Date(WEDDING_CONFIG.weddingDate).getTime();
 
     const daysVal = document.getElementById("days");
@@ -96,7 +98,8 @@ function startCountdown() {
 
     if (!daysVal || !hoursVal || !minutesVal || !secondsVal) return;
 
-    const interval = setInterval(() => {
+    let interval;
+    const updateCountdown = () => {
         const now = new Date().getTime();
         const distance = targetDate - now;
 
@@ -106,7 +109,7 @@ function startCountdown() {
             if (countdownContainer) {
                 countdownContainer.innerHTML = `<div class="wedding-started-msg">ئەمڕۆ ڕۆژی ئاهەنگەکەیە! بەخێر بێن ❤️</div>`;
             }
-            return;
+            return false;
         }
 
         // حیسابکردنی کاتەکان
@@ -120,7 +123,11 @@ function startCountdown() {
         hoursVal.textContent = String(hours).padStart(2, '0');
         minutesVal.textContent = String(minutes).padStart(2, '0');
         secondsVal.textContent = String(seconds).padStart(2, '0');
-    }, 1000);
+    };
+
+    if (updateCountdown() !== false) {
+        interval = setInterval(updateCountdown, 1000);
+    }
 }
 
 // ٣. چارەسەرکردنی ناردنی فۆڕمی RSVP بە فۆرمسپری (AJAX)
@@ -131,7 +138,7 @@ function setupRSVPForm() {
     const errorMsg = document.getElementById("rsvp-error-message");
     const submitBtn = document.getElementById("rsvp-submit-btn");
 
-    if (!form) return;
+    if (!form || typeof WEDDING_CONFIG === "undefined" || !WEDDING_CONFIG.formspreeId) return;
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
