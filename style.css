@@ -1,0 +1,983 @@
+/* هاوردەکردنی فۆنتەکان بۆ زمانی کوردی (Readex Pro بۆ دەقەکان، Aref Ruqaa بۆ ناوەکان) */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Aref+Ruqaa:wght@400;700&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap');
+
+/* دیزاینی سەرەکی و گۆڕاوە ڕەنگییەکان */
+:root {
+    --primary-color: #5a1223;       /* سوری تۆخی شاهانە - Burgundy */
+    --primary-light: #7c223a;       /* سوری گەشاوەتر */
+    --accent-gold: #c5a059;         /* ڕەنگی ئاڵتونی مۆدێرن */
+    --accent-gold-dark: #aa7c11;    /* ئاڵتونی تۆخ */
+    --bg-champagne: #faf6f0;        /* پاشبنەمای شامپانی کاڵ */
+    --bg-card: rgba(255, 255, 255, 0.88); /* پاشبنەمای شووشەیی کاڵ */
+    --text-dark: #2d2225;           /* ڕەنگی دەقی سەرەکی */
+    --text-light: #fefefe;          /* ڕەنگی دەقی گەش */
+    --text-muted: #6e5e62;          /* ڕەنگی دەقی لاوەکی */
+    --border-gold: rgba(197, 160, 89, 0.4); /* سنووری ئاڵتونی کاڵ */
+    --border-light: rgba(255, 255, 255, 0.5);
+    
+    --shadow-soft: 0 10px 30px rgba(90, 18, 35, 0.05);
+    --shadow-medium: 0 15px 35px rgba(90, 18, 35, 0.1);
+    --shadow-glass: 0 8px 32px 0 rgba(90, 18, 35, 0.08);
+}
+
+/* ڕێکخستنەوەی بنەڕەتی */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Readex Pro', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-champagne);
+    color: var(--text-dark);
+    direction: rtl;
+    text-align: center;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* ڕازاندنەوەی پاشبنەمای گشتی */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(90, 18, 35, 0.03) 0%, transparent 40%);
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* بەشە سەرەکییەکان */
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* چوارچێوەی شووشەیی (Glassmorphism Card) */
+.glass-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-gold);
+    border-radius: 24px;
+    padding: 40px 30px;
+    box-shadow: var(--shadow-glass);
+    max-width: 650px;
+    margin: 0 auto;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(90, 18, 35, 0.12);
+}
+
+/* ناونیشانی بەشەکان */
+.section-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.section-title::after {
+    content: '✿';
+    display: block;
+    font-size: 1.2rem;
+    color: var(--accent-gold);
+    margin-top: 5px;
+    letter-spacing: 2px;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   ١. بەشی سەرەوە (Hero Section)
+   ========================================================================== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+    background-image: 
+        linear-gradient(rgba(250, 246, 240, 0.85), rgba(250, 246, 240, 0.95)),
+        url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop'); /* پاشبنەمایەکی گوڵی کاڵ */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.hero-frame {
+    border: 2px solid var(--accent-gold);
+    padding: 50px 30px;
+    border-radius: 30px;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    box-shadow: inset 0 0 20px rgba(197, 160, 89, 0.1);
+}
+
+/* گۆشە ڕازاوەکان بۆ چوارچێوەی هێرۆ */
+.hero-frame::before, .hero-frame::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--primary-color);
+}
+
+.hero-frame::before {
+    top: -10px;
+    right: -10px;
+    border-bottom: none;
+    border-left: none;
+}
+
+.hero-frame::after {
+    bottom: -10px;
+    left: -10px;
+    border-top: none;
+    border-right: none;
+}
+
+.hero-welcome {
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.initials {
+    font-size: 3.5rem;
+    font-weight: 200;
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+    font-family: Georgia, serif;
+    letter-spacing: 5px;
+}
+
+.couple-names {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 3.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-family: 'Aref Ruqaa', 'Amiri', Georgia, serif;
+}
+
+.and-symbol {
+    font-family: Georgia, serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--accent-gold);
+    font-style: italic;
+}
+
+.hero-date {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    border-top: 1px solid var(--border-gold);
+    border-bottom: 1px solid var(--border-gold);
+    padding: 12px 0;
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 80%;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator span {
+    display: block;
+    margin-top: 5px;
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   ٢. ژمێرەری کات (Countdown Section)
+   ========================================================================== */
+.countdown-section {
+    background-color: rgba(90, 18, 37, 0.02);
+}
+
+.countdown-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.countdown-box {
+    background: white;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: 16px;
+    padding: 15px 10px;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-gold), var(--primary-color));
+}
+
+.countdown-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: block;
+    line-height: 1.2;
+}
+
+.countdown-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+    display: block;
+    font-weight: 400;
+}
+
+.wedding-started-msg {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 20px 0;
+}
+
+/* ==========================================================================
+   ٣. زانیارییەکانی شوێن (Venue Section)
+   ========================================================================== */
+.venue-details {
+    margin-bottom: 30px;
+}
+
+.venue-icon {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 15px;
+}
+
+.venue-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.venue-address {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--border-gold);
+    box-shadow: var(--shadow-soft);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ==========================================================================
+   ٤. فۆڕمی ئامادەبوون (RSVP Section)
+   ========================================================================== */
+.rsvp-section {
+    background-color: rgba(90, 18, 37, 0.02);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: right;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid rgba(197, 160, 89, 0.3);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    color: var(--text-dark);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(90, 18, 37, 0.08);
+}
+
+/* ڕادیۆ پشکێنەرەکان (Attendance Radios) */
+.radio-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 8px;
+}
+
+.radio-option {
+    flex: 1;
+    position: relative;
+}
+
+.radio-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.radio-label {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    border: 1.5px solid rgba(197, 160, 89, 0.3);
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.radio-option input[type="radio"]:checked + .radio-label {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-soft);
+}
+
+/* دوگمەی ناردن */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    cursor: pointer;
+    box-shadow: var(--shadow-medium);
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(90, 18, 35, 0.2);
+    filter: brightness(1.1);
+}
+
+.submit-btn:active {
+    transform: translateY(1px);
+}
+
+.submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* فایلی بارکردن (Spinner) */
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+/* پەیامی سەرکەوتوویی و شکست */
+.success-card {
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.success-icon {
+    font-size: 3.5rem;
+    color: #2e7d32;
+    margin-bottom: 20px;
+    animation: scaleUp 0.5s ease-out;
+}
+
+.success-title {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    border: 1px solid #ffcdd2;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   ٥. مۆسیقای پاشبنەما (Floating Music Button)
+   ========================================================================== */
+.music-control-wrapper {
+    position: fixed;
+    bottom: 25px;
+    left: 25px; /* ڕاست بۆ چەپ دەخرێتە لای چەپ */
+    z-index: 999;
+}
+
+.music-btn {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1.5px solid var(--accent-gold);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: var(--shadow-medium);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+    background-color: white;
+    border-color: var(--primary-color);
+}
+
+.music-btn-text {
+    position: absolute;
+    right: 60px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-soft);
+}
+
+.music-btn:hover .music-btn-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.music-icon {
+    font-size: 1.3rem;
+}
+
+/* ئەنیمەیشنی سووڕانەوەی دوگمەی مۆسیقا لەکاتی کارکردندا */
+.music-btn.playing {
+    animation: rotateDisc 4s linear infinite;
+    background-color: var(--primary-color);
+    border-color: var(--accent-gold);
+}
+
+.music-btn.playing .music-icon {
+    filter: brightness(2);
+}
+
+/* ==========================================================================
+   ٦. پەیامی بنپەڕە (Footer)
+   ========================================================================== */
+footer {
+    padding: 40px 20px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.footer-flower {
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+}
+
+.footer-names {
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-family: 'Aref Ruqaa', 'Amiri', Georgia, serif;
+    font-size: 1.25rem;
+}
+
+.footer-credit {
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
+
+/* ==========================================================================
+   ٧. ئەنیمەیشنەکان و دەرکەوتن لەکاتی سکڕۆڵکردندا (Scroll Animation)
+   ========================================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translate(-50%, 0);
+    }
+    40% {
+        transform: translate(-50%, -10px);
+    }
+    60% {
+        transform: translate(-50%, -5px);
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes rotateDisc {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes scaleUp {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* ==========================================================================
+   ٨. دیزاینی وەڵامدەرەوە بۆ تابلێت و شاشەی گەورە (Responsive styles)
+   ========================================================================== */
+@media (min-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+    
+    .countdown-wrapper {
+        gap: 20px;
+    }
+    
+    .countdown-box {
+        padding: 20px 15px;
+    }
+    
+    .countdown-number {
+        font-size: 2.6rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.9rem;
+    }
+    
+    .couple-names {
+        font-size: 3.2rem;
+    }
+    
+    .hero-frame {
+        padding: 60px 40px;
+    }
+}
+
+@media (min-width: 768px) {
+    section {
+        padding: 100px 40px;
+    }
+    
+    .hero-frame {
+        padding: 70px 50px;
+    }
+    
+    .couple-names {
+        font-size: 3.8rem;
+    }
+    
+    .countdown-wrapper {
+        gap: 25px;
+    }
+    
+    .countdown-box {
+        padding: 25px 20px;
+    }
+    
+    .countdown-number {
+        font-size: 3rem;
+    }
+    
+    .map-container {
+        height: 350px;
+    }
+    
+    .radio-group {
+        gap: 25px;
+    }
+}
+
+/* ==========================================================================
+   ٩. پەڕەی یەکەمی نامەی بانگێشتنامە (Envelope Overlay Style)
+   ========================================================================== */
+.envelope-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle, #2d0b13 0%, #110206 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), visibility 1s;
+    overflow: hidden;
+}
+
+.envelope-overlay.hidden-envelope {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.envelope-overlay::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle, rgba(197, 160, 89, 0.15) 1px, transparent 1px),
+        radial-gradient(circle, rgba(197, 160, 89, 0.15) 2px, transparent 2px);
+    background-size: 40px 40px, 60px 60px;
+    background-position: 0 0, 20px 30px;
+    animation: goldDust 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes goldDust {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-60px); }
+}
+
+.envelope-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    perspective: 1500px;
+}
+
+.envelope {
+    position: relative;
+    width: 360px;
+    height: 240px;
+    background-color: #4a0d1a;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.envelope:hover {
+    transform: translateY(-8px) rotateX(5deg);
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 180px solid transparent;
+    border-right: 180px solid transparent;
+    border-top: 130px solid #5a1223;
+    border-radius: 12px 12px 0 0;
+    transform-origin: top;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.3s;
+    z-index: 3;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+}
+
+.envelope-front {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 180px solid #3c0914;
+    border-right: 180px solid #3c0914;
+    border-bottom: 120px solid #450b18;
+    border-top: 120px solid transparent;
+    border-radius: 0 0 12px 12px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.envelope-front::before {
+    content: '';
+    position: absolute;
+    bottom: -116px;
+    left: -176px;
+    width: 352px;
+    height: 116px;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: 0 0 12px 12px;
+    pointer-events: none;
+}
+
+.envelope-card-inside {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    width: 330px;
+    height: 210px;
+    background: #fffdf9;
+    border: 2px solid var(--accent-gold);
+    border-radius: 8px;
+    padding: 30px 20px;
+    text-align: center;
+    z-index: 1;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: inset 0 0 15px rgba(197, 160, 89, 0.1);
+}
+
+.envelope-card-inside::before {
+    content: '';
+    position: absolute;
+    top: 8px; right: 8px; bottom: 8px; left: 8px;
+    border: 1px dashed rgba(197, 160, 89, 0.5);
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+.envelope-card-inside .envelope-header {
+    font-size: 0.85rem;
+    color: var(--accent-gold);
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.envelope-card-inside .envelope-names {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 20px 0;
+    font-family: 'Aref Ruqaa', 'Amiri', Georgia, serif;
+    letter-spacing: 1px;
+}
+
+.envelope-card-inside .envelope-message {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    font-weight: 300;
+}
+
+.wax-seal {
+    position: absolute;
+    top: 120px;
+    left: 180px;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #e6c280 0%, #c5a059 50%, #aa7c11 100%);
+    border-radius: 50%;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(255,255,255,0.4),
+        inset 0 -2px 4px rgba(0,0,0,0.2);
+    border: 2px solid #b38e46;
+    animation: sealGlowPulse 2.5s infinite;
+    pointer-events: none;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.seal-heart {
+    color: #5a1223;
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.3);
+}
+
+.click-hint {
+    font-size: 1.05rem;
+    color: var(--accent-gold);
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    animation: fadePulse 1.8s infinite;
+    text-shadow: 0 2px 10px rgba(197, 160, 89, 0.4);
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 0;
+    filter: drop-shadow(0 -4px 6px rgba(0,0,0,0.1));
+}
+
+.envelope.open .envelope-card-inside {
+    transform: translateY(-110px) scale(1.05);
+    z-index: 2;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.envelope.open .wax-seal {
+    transform: translate(-50%, -50%) scale(0.8) rotate(45deg);
+    opacity: 0;
+}
+
+@keyframes sealGlowPulse {
+    0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 10px rgba(197, 160, 89, 0.2); }
+    50% { transform: translate(-50%, -50%) scale(1.06); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(197, 160, 89, 0.5); }
+    100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 10px rgba(197, 160, 89, 0.2); }
+}
+
+@keyframes fadePulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* ==========================================================================
+   ١٠. چاککردنی کۆتایی دیزاینی وەڵامدەرەوە بۆ مۆبایلی بچووک (Mobile Optimization)
+   ========================================================================== */
+@media (max-width: 420px) {
+    .envelope {
+        transform: scale(0.85);
+        transform-origin: center;
+    }
+    .envelope:hover {
+        transform: scale(0.88) translateY(-4px);
+    }
+    .glass-card {
+        padding: 30px 15px;
+    }
+    .countdown-wrapper {
+        gap: 8px;
+    }
+    .countdown-box {
+        padding: 12px 6px;
+        border-radius: 12px;
+    }
+    .countdown-number {
+        font-size: 1.8rem;
+    }
+    .countdown-label {
+        font-size: 0.75rem;
+    }
+    .couple-names {
+        font-size: 2.2rem;
+        gap: 10px;
+    }
+    .and-symbol {
+        font-size: 1.8rem;
+    }
+    .section-title {
+        font-size: 1.6rem;
+    }
+    .venue-name {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .envelope {
+        transform: scale(0.72);
+        transform-origin: center;
+    }
+    .envelope:hover {
+        transform: scale(0.75) translateY(-3px);
+    }
+    .countdown-wrapper {
+        gap: 5px;
+    }
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+    .couple-names {
+        font-size: 1.8rem;
+    }
+}

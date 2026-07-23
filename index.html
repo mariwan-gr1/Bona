@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بانگێشتنامەی ئاهەنگی هاوسەرگیری</title>
+    <!-- وەسف بۆ SEO -->
+    <meta name="description" content="خۆشحاڵین بە بانگێشتکردنی ئێوەی ئازیز بۆ ئاهەنگی هاوسەرگیریمان. تکایە هاتنتان پشتڕاستبکەنەوە لە ڕێگەی فۆڕمی RSVP.">
+    
+    <!-- بەستەرەکان بۆ شێوازی دەرەکی -->
+    <link rel="stylesheet" href="style.css?v=2.0">
+</head>
+<body>
+
+    <!-- پەڕەی یەکەم: مۆری نامەی بانگێشتنامە (Envelope Overlay) -->
+    <div id="envelope-overlay" class="envelope-overlay">
+        <div class="envelope-wrapper">
+            <div class="envelope" id="open-envelope-btn">
+                <div class="envelope-card-inside">
+                    <div class="envelope-header">✿ هاوسەرگیری ✿</div>
+                    <div class="envelope-names">
+                        <span class="groom-name-val">مەریوان</span>
+                        <span class="and-symbol">&</span>
+                        <span class="bride-name-val">مینا</span>
+                    </div>
+                    <div class="envelope-message">خۆشحاڵ دەبین بە ئامادەبوونی جەنابتان</div>
+                </div>
+                <div class="envelope-flap"></div>
+                <div class="envelope-front"></div>
+                <div class="wax-seal">
+                    <div class="seal-heart">♥</div>
+                </div>
+            </div>
+            <div class="click-hint">پەنجە لە نامەکە بدە بۆ کردنەوەی</div>
+        </div>
+    </div>
+
+    <!-- ١. بەشی سەرەوە (Hero Section) -->
+    <header class="hero-section" id="hero">
+        <div class="hero-frame reveal active">
+            <div class="hero-welcome">سەربەرزمان دەکەن بە ئامادەبوونتان</div>
+            <div class="initials">M & M</div>
+            <h1 class="couple-names">
+                <span class="groom-name-val">مەریوان</span>
+                <span class="and-symbol">&</span>
+                <span class="bride-name-val">مینا</span>
+            </h1>
+            <div class="hero-date">
+                <span class="wedding-date-val">باردەکرێت...</span>
+            </div>
+            <p style="font-weight: 300; font-size: 1rem; color: var(--text-muted);">خۆشحاڵ دەبین بەشداربن لە ساتە پڕ خۆشییەکانمان</p>
+        </div>
+        
+        <a href="#countdown" class="scroll-indicator" aria-label="بڕۆ خوارەوە بۆ ژمێرەر">
+            خوێندنەوەی زیاتر
+            <span>▼</span>
+        </a>
+    </header>
+
+    <!-- ٢. بەشی ژمێرەری کات (Countdown Section) -->
+    <section class="countdown-section reveal" id="countdown">
+        <h2 class="section-title">ژمێرەری کات</h2>
+        <p class="section-subtitle">ڕێژەی کاتی ماوە بۆ ڕۆژی گەورەی هاوسەرگیریمان</p>
+        
+        <div class="glass-card" id="countdown-container">
+            <div class="countdown-wrapper">
+                <div class="countdown-box">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">ڕۆژ</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">کاتژمێر</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">خولەک</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">چرکە</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ٣. زانیارییەکانی شوێن (Venue Section) -->
+    <section class="venue-section reveal" id="venue">
+        <h2 class="section-title">شوێنی ئاهەنگ</h2>
+        <p class="section-subtitle">ئاهەنگەکە لەم شوێنە بەڕێوە دەچێت</p>
+        
+        <div class="glass-card">
+            <div class="venue-details">
+                <div class="venue-icon">📍</div>
+                <h3 class="venue-name" id="venue-name">باردەکرێت...</h3>
+                <p class="venue-address" id="venue-address">باردەکرێت...</p>
+            </div>
+            
+            <div class="map-container">
+                <!-- نەخشەی گووگڵ بە شێوەیەکی داینامیکی لێرە باردەکرێت لە ڕێگەی کارپێکەری JavaScript -->
+                <iframe 
+                    id="map-iframe"
+                    src="about:blank" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="نەخشەی شوێنی هۆڵەکە">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ٤. فۆڕمی ئامادەبوون (RSVP Section) -->
+    <section class="rsvp-section reveal" id="rsvp">
+        <h2 class="section-title">پشتڕاستکردنەوەی ئامادەبوون (RSVP)</h2>
+        <p class="section-subtitle">تکایە پێشوەختە ئامادەبوونی خۆتانمان بۆ پشتڕاست بکەنەوە</p>
+        
+        <div class="glass-card">
+            <div id="rsvp-form-container">
+                <form id="rsvp-form">
+                    <!-- ناوی سیانی -->
+                    <div class="form-group">
+                        <label for="full-name" class="form-label">ناوی سیانی:</label>
+                        <input type="text" id="full-name" name="name" class="form-input" placeholder="ناوی تەواوی خۆت بنووسە..." required>
+                    </div>
+                    
+                    <!-- ژمارەی یاوەران -->
+                    <div class="form-group">
+                        <label for="guests-count" class="form-label">ژمارەی ئەو کەسانەی لەگەڵت دێن (یاوەران):</label>
+                        <input type="number" id="guests-count" name="guests" class="form-input" min="0" max="10" value="0" required>
+                    </div>
+                    
+                    <!-- بڕیاری ئامادەبوون -->
+                    <div class="form-group">
+                        <label class="form-label">ئایا ئامادە دەبیت بۆ ئاهەنگەکە؟</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="attend-yes" name="attendance" value="yes" checked>
+                                <label for="attend-yes" class="radio-label">ئامادە دەبم 👍</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="attend-no" name="attendance" value="no">
+                                <label for="attend-no" class="radio-label">ئامادە نابم 👎</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- دوگمەی ناردنی فۆڕم -->
+                    <button type="submit" class="submit-btn" id="rsvp-submit-btn">
+                        <span>ناردنی وەڵام</span>
+                    </button>
+                </form>
+                
+                <!-- پەیامی هەڵە لەکاتی ناردندا -->
+                <div id="rsvp-error-message" class="error-message hidden">
+                    کێشەیەک ڕوویدا لە کاتی ناردنی وەڵامەکەت. تکایە دووبارە تاقیبکەرەوە یان ڕاستەوخۆ پەیوەندیمان پێوە بکە.
+                </div>
+            </div>
+
+            <!-- پەیامی سەرکەوتوویی لەکاتی ناردندا (لەسەرەتاوە شاراوەیە) -->
+            <div id="rsvp-success-message" class="success-card hidden">
+                <div class="success-icon">✓</div>
+                <h3 class="success-title">وەڵامەکەت بە سەرکەوتوویی نێردرا!</h3>
+                <p style="color: var(--text-muted);">زۆر سوپاس بۆ پشتڕاستکردنەوە، خۆشحاڵ دەبین بە دیدارتان ❤️</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ٥. دوگمەی کۆنتڕۆڵی مۆسیقای سەرئاوکەوتوو (Floating Music Player) -->
+    <div class="music-control-wrapper">
+        <button class="music-btn" id="music-toggle-btn" aria-label="کارپێکردن/ڕاگرتنی مۆسیقا">
+            <span class="music-icon" id="music-icon">🎵</span>
+            <span class="music-btn-text" id="music-text">کارپێکردنی مۆسیقا</span>
+        </button>
+    </div>
+
+    <!-- پەیامی بنپەڕە (Footer) -->
+    <footer>
+        <div class="footer-flower">✿</div>
+        <div class="footer-names">
+            <span class="groom-name-val">مەریوان</span> & <span class="bride-name-val">مینا</span>
+        </div>
+        <div class="footer-credit">دیزاین کراوە بە خۆشەویستییەوە • ٢٠٢٦</div>
+    </footer>
+
+    <!-- هێنانە ناوەوەی کارپێکەرەکان -->
+    <script src="config.js?v=2.0"></script>
+    <script src="script.js?v=2.0"></script>
+</body>
+</html>
