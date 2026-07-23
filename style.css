@@ -44,7 +44,30 @@ body {
     letter-spacing: normal;
     word-spacing: normal;
     font-kerning: normal;
-    font-variant-ligatures: common-ligatures contextual;
+}
+
+/* Safari on iPhone can occasionally render downloaded Arabic web fonts with
+   broken Kurdish letter shaping. Use Apple's installed Arabic font there so
+   joined Kurdish letters always use the native text engine and font file. */
+@supports (-webkit-touch-callout: none) {
+    body,
+    button,
+    input,
+    textarea,
+    select {
+        font-family: 'Geeza Pro', 'SF Arabic', -apple-system, Arial, sans-serif !important;
+        font-kerning: auto;
+        font-variant-ligatures: normal;
+        letter-spacing: 0 !important;
+        word-spacing: 0 !important;
+    }
+
+    .couple-names,
+    .envelope-card-inside .envelope-names,
+    .footer-names {
+        font-family: 'Geeza Pro', 'SF Arabic', -apple-system, Arial, sans-serif !important;
+        line-height: 1.5;
+    }
 }
 
 /* ڕازاندنەوەی پاشبنەمای گشتی */
