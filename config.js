@@ -21,3 +21,4 @@ const WEDDING_CONFIG = {
     // مۆسیقای پاشبنەما (لینکێکی مۆسیقای شاد یان ڕۆمانسی)
     backgroundMusicUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
 };
+// Trigger Pages build 1
